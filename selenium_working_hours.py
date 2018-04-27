@@ -49,7 +49,7 @@ def update_working_hours(myid, mypassword):
     try:
         button_fill = driver.find_element_by_xpath("//a[@class='button button-big button-fill button-success external']")
     except Exception as e:
-        #driver_close(driver)
+        driver_close(driver)
         return False
     button_fill.click()
     driver.switch_to_window(driver.window_handles[-1])
@@ -69,7 +69,7 @@ def update_working_hours(myid, mypassword):
     time.sleep(2)
     submit = driver.find_element_by_id("saveAndSubmit-btn")
     submit.click()
-    #driver_close(driver)
+    driver_close(driver)
     return True
 
 def main():
@@ -93,7 +93,7 @@ def main():
                 print ("submit successful!")
             else:
                 print ("I cannot submit, did you submited before or you request leave today?")
-            driver_close(driver)
+            #driver_close(driver)
         else:
             print ("submit fail! your PC is not online, you are OoO today?")
 
